@@ -2,7 +2,7 @@
 List<string> bandasRegistradas = new List<string> { "U2", "The Beatles"};
 
 Dictionary<string, List<int>> bandasRegistadas = new Dictionary<string, List<int>>();
-bandasRegistadas.Add("Link park", new List<int> { 10, 8, 6 });
+bandasRegistadas.Add("Linkin Park", new List<int> { 10, 8, 6 });
 bandasRegistadas.Add("The Beatles", new List<int>());
 void ExibirLogo()
 {
@@ -95,7 +95,13 @@ void AvaliarUmaBanda() {
     string nomeBanda = Console.ReadLine()!; //espera o nome da banda e captura dentro da variavel nomeBanda
     if (bandasRegistadas.ContainsKey(nomeBanda))
     { 
-       
+       Console.Write($"Qual a nota que a banda {nomeBanda} merece? ");
+        int nota = int.Parse(Console.ReadLine()!);
+        bandasRegistadas[nomeBanda].Add(nota); //acessando o dicionario bandasRegistradas, passando o nome da banda como chave e adicionando a nota na lista de notas
+        Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeBanda}!");
+        Thread.Sleep(2000);
+        Console.Clear();
+        ExibirMenu();
     } else
     {
         Console.WriteLine($"\nA banda {nomeBanda} não foi encontrada!");
